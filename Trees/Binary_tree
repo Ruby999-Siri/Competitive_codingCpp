@@ -1,0 +1,92 @@
+/*
+Binary Search tree:
+Given a parent array we need to find the binary tree of the given parent array.
+
+🌟 Intuition:
+we can perform by using the Any traversal techniques Here,
+I am using Inorder traversal.
+I am taking a map to create and store the  nodes from 0 to n-1 so that I can easily
+acesses the child of the respective given parent array.
+Next -->
+finding the root node for the parent array and the finding the each and every child node of
+their respective parent array and by using the Inorder taversal we are representing the Binary Tree
+Inorder ----> left, root , right
+Inorder traversal ---> Here Nodes are arranged in assending order
+sample input:
+8
+-1 0 0 1 2 2 4 4
+Output:3 1 0 6 4 7 2 5 
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void Takeinput()
+{
+
+   #ifndef ONLINE_JUDGE
+   freopen("inputf.txt","r",stdin);
+   freopen("outputf.txt","w",stdout);
+   #endif
+}
+
+struct Node{
+   int data;
+   Node *right, *left;
+   Node(int val){
+      //this->data = val;
+      //this->left = this->right = nullptr;
+      data = val;
+      left = right = nullptr;
+   }
+};
+
+Node *creat_A_BinaryTree(int n, int *parent)
+{
+
+   unordered_map<int,Node*>mpp;
+   for(int i = 0 ; i < n ; i++)
+   {
+      mpp[i]=new Node(i);
+   }
+   Node *root = nullptr;
+   for(int i = 0 ; i < n; i++)
+   {
+      if(parent[i] == -1){
+         root = mpp[i];
+      }
+      else{
+         Node *par = mpp[parent[i]];
+         if(par->left){
+            par->right = mpp[i];
+         }
+         else{
+            par->left = mpp[i];
+         }
+      }
+   }
+   return root;
+}
+
+void Inorder(Node *root)
+{
+   if(root != nullptr){
+      Inorder(root->left);
+      cout<<root->data<<" ";
+      Inorder(root->right);
+   }
+}
+
+
+int main()
+{
+   Takeinput();
+   int n;
+   cin>>n;
+   int parent[n];
+   for(int i = 0 ; i < n ; i++)cin >> parent[i];
+   Node *root =creat_A_BinaryTree(n,parent);
+   Inorder(root);
+   return 0;
+}
+
