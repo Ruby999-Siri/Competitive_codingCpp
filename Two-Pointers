@@ -1,0 +1,56 @@
+
+// Two pointers
+
+/* which is mostly used in arrays,Linked lists,strings.
+
+Arrays and strings:
+1. polynomial pointers --->finding the subarrays O(n^2)complexity.
+
+2. Rivaling pointers (Binary search algorithm).
+
+3. Multiple Pointers(Dutch flag problem):sorting of 0,1,2 array.
+
+4 Double input pointers for the merging of the arrays.
+
+5.Sliding Windows Ex: fixed window pattern 
+
+Linked list:
+1.pointer chasing ("Slow and Fast" or "Tortoise and Hare")for Cycle Detection.
+
+Companies that two - pointers ask :
+
+Google
+
+Facebook
+
+Microsoft
+
+Airbnb
+
+
+When to use two pointers:
+
+1. When their is a sorted array .
+
+2. to eliminate the redundant computations
+
+Some senarios where to use:
+
+> Searching pairs in a sorted array.
+> Finding a cycle in a linked list.
+> Checking for a plaindromes.
+> Applying a sliding Window.
+
+
+!!!!! ***IMP TO REMEMBER **** !!!!
+
+
+> during interviews be cousious while traversing the array.
+> don't forget to change the poistions of the pointers.
+> Remember to have a edge cases and how the things need to be change their.
+
+*/
+
+
+
+
