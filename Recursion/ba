@@ -1,0 +1,107 @@
+
+//Recursion works like -----> Mathmetical Induction 
+//Recursion : the process in which a function calls itself.
+//Import thing : Base case which breaks your recursion.
+//Trust: (here we can not deberg recusion typical to understand) so, that we need to trust;
+//Trust: Leap of Faith
+
+void Say_Hello(int n)
+{
+	if(n==0)return;
+	cout<<" Hello "<<" "<<n<<"\n";
+	Say_Hello(n-1);
+	cout<<" Hello "<<" "<<n<<"\n";
+}
+
+int main()
+{
+	Takeinput();
+	Say_Hello(11);
+	return 0;
+
+}
+
+//sum of n numbers in recursive case
+int Sum_N(int n)
+{
+	if(n == 0)return 0;
+	int l = Sum_N(n-1);
+	cout<<l<<'\n';
+	return l+n;
+
+}
+
+int main()
+{
+	Takeinput();
+	cout<<Sum_N(5);
+	return 0;
+}
+
+
+/*
+87980
+fun(8798)+0
+fun(879)+8
+fun(87)+17
+fun(8)+24
+fun(0)+32
+when n reaches the 0 then it returns the 0 in which it add to the adding function and then stop ;*/
+
+//Adding of digits:
+int Adding(int n)
+{
+	if(n == 0)return 0;
+	int lastdigit = n%10;
+	int remaining_digit = n/10;
+	return Adding(remaining_digit)+lastdigit;
+}
+
+int main()
+{
+	Takeinput();
+	int n;
+	cin>>n;
+	cout<<Adding(n);
+
+}
+/*Patterns
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2
+1
+1 2
+1 2 3 
+1 2 3 4
+1 2 3 4 5
+*/
+
+void Patterns(int n)
+{
+	if(n==1){
+		cout<<1<<endl;
+		return ;
+	}
+	if(n==0) return;
+	for(int i = 1; i<=n ; i++)
+	{
+		cout<<i<<" ";
+	}
+	cout<<"\n";
+	Patterns(n-1);
+	for(int i = 1; i<=n ; i++)
+	{
+		cout<<i<<" ";
+	}
+	
+	cout<<"\n";
+	
+}
+
+int main()
+{
+	Takeinput();
+	Patterns(5);
+	return 0;
+}
